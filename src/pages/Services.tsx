@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Section from '@/components/Section';
 import Button from '@/components/Button';
 import FAQ from '@/components/FAQ';
+import SEO from '@/components/SEO';
 import { ArrowRight, Check, Star, Clock, Calendar, Film, PenTool } from 'lucide-react';
 
 const fadeInUp = {
@@ -14,6 +15,10 @@ const fadeInUp = {
 const Services = () => {
   return (
     <>
+      <SEO 
+        title="Screenwriting Services"
+        description="Explore holistic screenwriting courses, script consultations, and private mentoring designed to help you build emotionally powerful stories."
+      />
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">

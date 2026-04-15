@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Section from '@/components/Section';
 import Button from '@/components/Button';
 import TestimonialsGrid from '@/components/TestimonialsGrid';
+import SEO from '@/components/SEO';
 import { Layout, Users, HelpCircle, ArrowRight, MapPin, BookOpen, CheckCircle, Leaf } from 'lucide-react';
 
 const fadeInUp = {
@@ -18,6 +19,10 @@ const stagger = {
 const Home = () => {
   return (
     <>
+      <SEO 
+        title="Holistic Screenwriting Coaching"
+        description="Go beyond formula and build living, emotionally powerful stories with holistic screenwriting coaching for dedicated writers."
+      />
       {/* Hero Section - Reference: Full width bg, left aligned text */}
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">

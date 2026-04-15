@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '@/components/Section';
 import Button from '@/components/Button';
+import SEO from '@/components/SEO';
 import { SafeEmail } from '@/components/SafeEmail';
 import { Mail, Calendar, Linkedin, MessageSquare, Clock, Globe } from 'lucide-react';
 
@@ -17,6 +18,10 @@ const stagger = {
 const Contact = () => {
   return (
     <>
+      <SEO 
+        title="Contact Mark"
+        description="Get in touch with Mark Fyvers to discuss screenwriting courses, script consultations, or private mentoring. Start your creative conversation today."
+      />
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">

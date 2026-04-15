@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '@/components/Section';
 import Button from '@/components/Button';
+import SEO from '@/components/SEO';
 import { MapPin, BookOpen, Film, Coffee, Globe, Heart, Mail, Feather, Compass, Anchor } from 'lucide-react';
 
 const fadeInUp = {
@@ -16,6 +17,10 @@ const stagger = {
 const About = () => {
   return (
     <>
+      <SEO 
+        title="About Mark Fyvers"
+        description="Learn about Mark Fyvers, a working screenwriter and holistic coach with over a decade of experience in the global film and TV industry."
+      />
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">

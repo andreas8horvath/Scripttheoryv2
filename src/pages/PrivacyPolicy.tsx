@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '@/components/Section';
+import SEO from '@/components/SEO';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -10,6 +11,10 @@ const fadeInUp = {
 const PrivacyPolicy = () => {
   return (
     <>
+      <SEO 
+        title="Privacy Policy"
+        description="Read the Script Theory privacy policy to understand how we collect, use, and protect your personal data in accordance with EU regulations."
+      />
       <section className="relative pt-40 pb-20 bg-espresso-black text-textured-vellum overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 relative z-10 text-center">
           <motion.div
