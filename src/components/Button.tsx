@@ -9,11 +9,12 @@ interface ButtonProps {
   children: React.ReactNode;
   to?: string;
   onClick?: () => void;
+  type?: 'button' | 'submit' | 'reset';
   variant?: 'primary' | 'secondary' | 'outline' | 'text';
   className?: string;
 }
 
-const Button = ({ children, to, onClick, variant = 'primary', className }: ButtonProps) => {
+const Button = ({ children, to, onClick, type = 'button', variant = 'primary', className }: ButtonProps) => {
   const baseStyles = "inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-widest transition-all duration-300 font-medium cursor-pointer rounded-full shadow-sm hover:shadow-md";
   
   const variants = {
@@ -45,6 +46,7 @@ const Button = ({ children, to, onClick, variant = 'primary', className }: Butto
 
   return (
     <motion.button 
+      type={type}
       onClick={onClick} 
       className={combinedClassName}
       {...animationProps}

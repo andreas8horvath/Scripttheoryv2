@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Section from '@/components/Section';
 import Button from '@/components/Button';
-import TestimonialsGrid from '@/components/TestimonialsGrid';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import SEO from '@/components/SEO';
 import { Layout, Users, HelpCircle, ArrowRight, MapPin, BookOpen, CheckCircle, Leaf } from 'lucide-react';
 
@@ -367,7 +367,7 @@ const Home = () => {
              <span className="text-directors-crimson font-medium tracking-widest uppercase text-sm">Testimonials</span>
              <h2 className="text-4xl md:text-5xl mt-4 text-espresso-black font-serif">Stories of Transformation</h2>
           </motion.div>
-          <TestimonialsGrid />
+          <TestimonialsCarousel />
         </div>
       </Section>
 

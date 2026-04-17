@@ -2,6 +2,9 @@
   RewriteEngine On
   RewriteBase /
   
+  # Prioritize index.html
+  DirectoryIndex index.html
+  
   # Redirect all requests to index.html unless it's a real file or directory
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d

@@ -13,7 +13,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle SPA routing: return index.html for all non-API routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error(`Error sending index.html from ${indexPath}:`, err);
+      res.status(500).send('Error loading the application. Make sure the "dist" folder exists and contains index.html.');
+    }
+  });
 });
 
 app.listen(PORT, () => {
