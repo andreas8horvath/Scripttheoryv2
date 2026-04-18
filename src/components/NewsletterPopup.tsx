@@ -9,31 +9,34 @@ const NewsletterPopup = () => {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
   useEffect(() => {
-    const checkConsentAndShow = () => {
-      const consent = localStorage.getItem('cookieConsent');
-      const hasShown = localStorage.getItem('newsletterPopupShown');
+    let timer: NodeJS.Timeout;
+    let interval: NodeJS.Timeout;
 
-      // Only show if user has interacted with cookies and hasn't seen this popup yet
-      if (consent && !hasShown) {
-        const timer = setTimeout(() => {
-          setIsVisible(true);
-        }, 3000); // 3-second delay after cookie banner interaction
-        return () => clearTimeout(timer);
-      } else if (!consent) {
-        // If no consent yet, check again in a few seconds or set up an interval
-        const interval = setInterval(() => {
+    const consent = localStorage.getItem('cookieConsent');
+    const hasShown = localStorage.getItem('newsletterPopupShown');
+
+    // Only proceed if user hasn't seen/dismissed the popup yet
+    if (!hasShown) {
+      if (consent) {
+        // If they already accepted in a previous session, show after a delay on load
+        timer = setTimeout(() => setIsVisible(true), 3000);
+      } else {
+        // Poll for consent interaction
+        interval = setInterval(() => {
           const latestConsent = localStorage.getItem('cookieConsent');
           if (latestConsent) {
             clearInterval(interval);
-            const timer = setTimeout(() => setIsVisible(true), 3000);
-            return () => clearTimeout(timer);
+            // Show shortly after they click accept/reject
+            timer = setTimeout(() => setIsVisible(true), 2000);
           }
-        }, 2000);
-        return () => clearInterval(interval);
+        }, 1000);
       }
-    };
+    }
 
-    checkConsentAndShow();
+    return () => {
+      if (timer) clearTimeout(timer);
+      if (interval) clearInterval(interval);
+    };
   }, []);
 
   const handleClose = () => {

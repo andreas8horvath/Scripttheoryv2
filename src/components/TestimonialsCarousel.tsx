@@ -91,10 +91,7 @@ export default function TestimonialsCarousel() {
                   {current.text.split('\n\n').map((para, i) => (
                     <p 
                       key={i} 
-                      className={cn(
-                        "font-serif leading-relaxed text-espresso-black/80 italic text-balance",
-                        para.length > 300 ? "text-lg md:text-xl" : "text-xl md:text-2xl"
-                      )}
+                      className="font-serif leading-relaxed text-espresso-black/80 italic text-balance text-lg md:text-xl"
                     >
                       {currentIndex === 0 || currentIndex === 1 ? para : `"${para}"`}
                     </p>
