@@ -19,7 +19,8 @@ const NewsletterPopup = () => {
     if (!hasShown) {
       if (consent) {
         // If they already accepted in a previous session, show after a delay on load
-        timer = setTimeout(() => setIsVisible(true), 3000);
+        // Recommended delay: 8 seconds (allows user to see the value prop before interruption)
+        timer = setTimeout(() => setIsVisible(true), 8000);
       } else {
         // Poll for consent interaction
         interval = setInterval(() => {
@@ -27,7 +28,7 @@ const NewsletterPopup = () => {
           if (latestConsent) {
             clearInterval(interval);
             // Show shortly after they click accept/reject
-            timer = setTimeout(() => setIsVisible(true), 2000);
+            timer = setTimeout(() => setIsVisible(true), 1500);
           }
         }, 1000);
       }
@@ -106,12 +107,12 @@ const NewsletterPopup = () => {
             <div className="p-8 md:p-12 text-center">
               {!isSubscribed ? (
                 <>
-                  <h2 className="text-3xl md:text-4xl font-serif text-espresso-black mb-4">
+                  <h2 className="text-3xl md:text-4xl font-serif text-espresso-black mb-4 drop-shadow-sm">
                     Master Your <span className="text-golden-ocher italic">Storytelling</span>
                   </h2>
-                  <p className="text-espresso-black/70 mb-8 leading-relaxed">
-                    Join our literary inner circle. Receive exclusive screenwriting insights, 
-                    character development deep-dives, and industry wisdom delivered to your inbox.
+                  <p className="text-espresso-black/70 mb-8 leading-relaxed max-w-sm mx-auto">
+                    Join our literary inner circle. Receive exclusive screenwriting insights and 
+                    industry wisdom delivered to your inbox.
                   </p>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
